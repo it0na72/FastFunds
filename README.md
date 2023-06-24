@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://it0na72.github.io/FastFunds/">
-    <img src="img/logo.png" alt="Logo" width="100" height="150">
+    <img src="logo.png" alt="Logo" width="100" height="100">
   </a>
 <h3 align="center">Fast Funds</h3>
 
@@ -38,7 +38,7 @@
 
 INSERT GIF OF THE PROJECT
 
-Gained proficiency using HTML, CSS & Vanilla Javascript
+FastFunds is a cutting-edge banking web application designed to provide users with a lightning-fast and seamless financial experience. With our user-friendly interface and robust features, managing your funds has never been easier. Our platform enables you to effortlessly navigate through various banking operations, including account management, fund transfers, bill payments, and transaction tracking.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -55,7 +55,14 @@ After cloning this repo you should be able to change your details as needed.
 <!-- ROADMAP -->
 ## Roadmap
 - [ ] Change colour pallet
-- [ ] Add night mode 
+- [ ] Add night mode
+- [ ] Make a website explaining how the bank app works
+- [ ] Implement 5 min logout timer
+- [ ] Implement today's date when the user logs in
+- [ ] Fix request loan section
+- [ ] Fix close account section
+- [ ] Fix media queries
+- [ ] Add sound effect when user successfully logs in
 
 
 See the [open issues](https://github.com/it0na72/FastFunds/issue) for a full list of proposed features (and known issues).
