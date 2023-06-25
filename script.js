@@ -2,7 +2,7 @@
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
-// BANKIST APP
+// FastFunds App
 
 // Data
 const account1 = {
@@ -68,10 +68,12 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
 
-  movements.forEach(function (mov, i) {
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const html = `<div class="movements__row">
@@ -132,7 +134,8 @@ const updateUI = function (acc) {
   // display summary
   calcDisplaySummary(acc);
 };
-// event handler
+
+// event handlers
 let currentAccount;
 
 btnLogin.addEventListener('click', function (e) {
@@ -172,7 +175,7 @@ btnTransfer.addEventListener('click', function (e) {
     currentAccount.balance >= amount &&
     receiverAcc?.username !== currentAccount.username
   ) {
-    // code for transfering money
+    // code for transferring money
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
 
@@ -181,6 +184,51 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    // add movement
+    currentAccount.movements.push(amount);
+
+    // update UI
+    updateUI(currentAccount);
+  }
+  inputLoanAmount.value = '';
+});
+
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (
+    inputCloseUsername.value === currentAccount.username &&
+    Number(inputClosePin.value) === currentAccount.pin
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+
+    // delete the account
+    accounts.splice(index, 1);
+
+    // then hide the UI afterwards
+    containerApp.style.opacity = 0;
+
+    // clear text content
+    labelWelcome.textContent = 'Log in to get started';
+  }
+
+  inputCloseUsername.value = inputClosePin.value = '';
+});
+
+let sorted = false;
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted; // make the sort button different than sorted
+});
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -406,4 +454,44 @@ console.log(accounts);
 
 const account = accounts.find(acc => acc.owner === 'Jessica Davis');
 console.log(account);
+
+
+console.log(movements);
+
+console.log(movements.includes(-130));
+
+
+// flat method only goes 1 level deep
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat());
+
+// you can select how many layers deep you wanna go
+const arrDeep = [[1, 2, 3], [4, [5, [6]]], 7, 8];
+console.log(arrDeep.flat(2));
+
+// flat
+const overallBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overallBalance);
+
+// flatmap
+const overallBalance2 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overallBalance2);
+
+
+// strings
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+console.log(owners.sort());
+
+// numbers
+movements.sort((a, b) => {
+  if (a > b) return 1;
+  if (b > a) return -1;
+});
+
+console.log(movements);
 */
