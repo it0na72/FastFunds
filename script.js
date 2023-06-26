@@ -12,14 +12,14 @@ const account1 = {
   pin: 1111,
 
   movementsDates: [
-    '2019-11-18T21:31:17.178Z',
-    '2019-12-23T07:42:02.383Z',
-    '2020-01-28T09:15:04.904Z',
-    '2020-04-01T10:17:24.185Z',
-    '2020-05-08T14:11:59.604Z',
-    '2020-05-27T17:01:17.194Z',
-    '2020-07-11T23:36:17.929Z',
-    '2020-07-12T10:51:36.790Z',
+    '2023-02-18T21:31:17.178Z',
+    '2023-12-23T07:42:02.383Z',
+    '2023-01-28T09:15:04.904Z',
+    '2022-04-01T10:17:24.185Z',
+    '2023-05-08T14:11:59.604Z',
+    '2023-05-27T17:01:17.194Z',
+    '2023-07-11T23:36:17.929Z',
+    '2023-07-12T10:51:36.790Z',
   ],
   currency: 'EUR',
   locale: 'pt-PT', // de-DE
@@ -98,16 +98,25 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // Functions
 
-const displayMovements = function (movements, sort = false) {
+const displayMovements = function (acc, sort = false) {
   containerMovements.innerHTML = '';
 
-  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+  const movs = sort
+    ? acc.movements.slice().sort((a, b) => a - b)
+    : acc.movements;
 
   movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
+    const date = new Date(acc.movementsDates[i]);
+    const day = `${date.getDate()}`.padStart(2, 0);
+    const month = `${date.getMonth() + 1}`.padStart(2, 0); // this is 0 based
+    const year = date.getFullYear();
+    const displayDate = `${day}/${month}/${year}`;
+
     const html = `<div class="movements__row">
     <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
+    <div class="movements__date">${displayDate}</div>
     <div class="movements__value">£${mov.toFixed(2)}</div>
   </div>`;
 
@@ -156,7 +165,7 @@ createUsernames(accounts);
 
 const updateUI = function (acc) {
   // display movements
-  displayMovements(acc.movements);
+  displayMovements(acc);
 
   // display balance
   calcDisplayBalance(acc);
@@ -167,6 +176,15 @@ const updateUI = function (acc) {
 
 // event handlers
 let currentAccount;
+
+// fake always logged in for debugging purposes
+currentAccount = account1;
+updateUI(currentAccount);
+containerApp.style.opacity = 100;
+
+const now = new Date();
+
+// day - month - year
 
 btnLogin.addEventListener('click', function (e) {
   // prevent form from submitting
@@ -181,6 +199,15 @@ btnLogin.addEventListener('click', function (e) {
       currentAccount.owner.split(' ')[0]
     }`;
     containerApp.style.opacity = 100;
+
+    // create current date and time
+    const now = new Date();
+    const day = `${now.getDate()}`.padStart(2, 0);
+    const month = `${now.getMonth() + 1}`.padStart(2, 0); // this is 0 based (starts at 0)
+    const year = now.getFullYear();
+    const hour = `${now.getHours()}`.padStart(2, 0);
+    const min = `${now.getMinutes()}`.padStart(2, 0);
+    labelDate.textContent = `${day}/${month}/${year} at: ${hour}:${min}`;
 
     // clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
@@ -209,6 +236,10 @@ btnTransfer.addEventListener('click', function (e) {
     currentAccount.movements.push(-amount);
     receiverAcc.movements.push(amount);
 
+    // Add transfer date
+    currentAccount.movementsDates.push(new Date().toISOString);
+    receiverAcc.movementsDates.push(new Date().toISOString);
+
     // update UI
     updateUI(currentAccount);
   }
@@ -222,6 +253,9 @@ btnLoan.addEventListener('click', function (e) {
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // add movement
     currentAccount.movements.push(amount);
+
+    // Add loan date
+    currentAccount.movementsDates.push(new Date().toISOString);
 
     // update UI
     updateUI(currentAccount);
@@ -583,6 +617,33 @@ console.log(25 ** (1 / 2));
 
 const randomInt = (min, max) => Math.trunc(Math.random() * (max - min) + 1);
 console.log(randomInt(10, 20));
-*/
 
-console.log(5 % 2);
+
+const isEven = n => n % 2 === 0;
+console.log(isEven(8));
+console.log(isEven(23));
+console.log(isEven(514));
+
+labelBalance.addEventListener('click', function () {
+  [...document.querySelectorAll('.movements__row')].forEach(function (row, i) {
+    if (i % 2 === 0) row.style.backgroundColor = 'orangered';
+  });
+});
+
+
+// 287,460,000,000
+const diameter = 287_460_000_000;
+console.log(diameter);
+
+
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(45648946804894068946540564684654684n);
+
+
+// create a date
+const now = new Date();
+console.log(now);
+
+console.log(new Date(account1.movementsDates[0]));
+*/
