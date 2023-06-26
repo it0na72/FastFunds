@@ -108,7 +108,7 @@ const displayMovements = function (movements, sort = false) {
 
     const html = `<div class="movements__row">
     <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
-    <div class="movements__value">£${mov}</div>
+    <div class="movements__value">£${mov.toFixed(2)}</div>
   </div>`;
 
     containerMovements.insertAdjacentHTML('afterbegin', html);
@@ -117,19 +117,19 @@ const displayMovements = function (movements, sort = false) {
 
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${acc.balance}£`;
+  labelBalance.textContent = `${acc.balance.toFixed(2)}£`;
 };
 
 const calcDisplaySummary = function (acc) {
   const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumIn.textContent = `£${incomes}`;
+  labelSumIn.textContent = `£${incomes.toFixed(2)}`;
 
   const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumOut.textContent = `£${Math.abs(out)}`;
+  labelSumOut.textContent = `£${Math.abs(out).toFixed(2)}`;
 
   const interest = acc.movements
     .filter(mov => mov > 0)
@@ -139,7 +139,7 @@ const calcDisplaySummary = function (acc) {
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
-  labelSumInterest.textContent = `£${interest}`;
+  labelSumInterest.textContent = `£${interest.toFixed(2)}`;
 };
 
 const createUsernames = function (accs) {
@@ -175,7 +175,7 @@ btnLogin.addEventListener('click', function (e) {
   currentAccount = accounts.find(
     acc => acc.username === inputLoginUsername.value
   );
-  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+  if (currentAccount?.pin === +inputLoginPin.value) {
     // display UI and message
     labelWelcome.textContent = `Welcome back, ${
       currentAccount.owner.split(' ')[0]
@@ -193,7 +193,7 @@ btnLogin.addEventListener('click', function (e) {
 
 btnTransfer.addEventListener('click', function (e) {
   e.preventDefault();
-  const amount = Number(inputTransferAmount.value);
+  const amount = +inputTransferAmount.value;
   const receiverAcc = accounts.find(
     acc => acc.username === inputTransferTo.value
   );
@@ -217,7 +217,7 @@ btnTransfer.addEventListener('click', function (e) {
 btnLoan.addEventListener('click', function (e) {
   e.preventDefault();
 
-  const amount = Number(inputLoanAmount.value);
+  const amount = Math.floor(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     // add movement
@@ -234,7 +234,7 @@ btnClose.addEventListener('click', function (e) {
 
   if (
     inputCloseUsername.value === currentAccount.username &&
-    Number(inputClosePin.value) === currentAccount.pin
+    +inputClosePin.value === currentAccount.pin
   ) {
     const index = accounts.findIndex(
       acc => acc.username === currentAccount.username
@@ -525,7 +525,7 @@ movements.sort((a, b) => {
 });
 
 console.log(movements);
-*/
+
 
 // coding challenge 4
 
@@ -559,3 +559,30 @@ const ownersEatTooLittle = dogs
   .filter(dog => dog.curFood < dog.recFood)
   .flatMap(dog => dog.owners);
 console.log(ownersEatTooLittle);
+
+
+// conversion
+console.log(Number('23'));
+console.log(+'23');
+
+// parsing
+console.log(Number.parseInt('30px', 10));
+console.log(Number.parseInt('e23', 10));
+
+console.log(Number.parseFloat('2.5rem'));
+console.log(Number.parseInt('2.5rem')); // stops at the decimal
+
+console.log(Number.isNaN(20));
+console.log(Number.isNaN('20'));
+console.log(Number.isNaN(+'20x'));
+
+
+console.log(Math.sqrt(25));
+console.log(25 ** (1 / 2));
+console.log(25 ** (1 / 2));
+
+const randomInt = (min, max) => Math.trunc(Math.random() * (max - min) + 1);
+console.log(randomInt(10, 20));
+*/
+
+console.log(5 % 2);
