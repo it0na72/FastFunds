@@ -59,8 +59,8 @@ After cloning this repo you should be able to change your details as needed.
 - [ ] Make a website explaining how the bank app works
 - [ ] Implement 5 min logout timer
 - [ ] Implement today's date when the user logs in
-- [ ] Fix request loan section
-- [ ] Fix close account section
+- [x] Fix request loan section
+- [x] Fix close account section
 - [ ] Fix media queries
 - [ ] Add sound effect when user successfully logs in
 
