@@ -56,8 +56,8 @@ After cloning this repo you should be able to change your details as needed.
 
 - [ ] Change colour pallet
 - [ ] Add night mode
-- [ ] Make a website explaining how the bank app works
-- [ ] Implement 5 min logout timer
+- [ ] Make a separate website explaining how the bank app works
+- [x] Implement 2 min logout timer
 - [x] Implement today's date when the user logs in
 - [x] Fix request loan section
 - [x] Fix close account section

@@ -237,7 +237,7 @@ h2 {
   gap: 0.4rem 1rem;
 }
 
-/* Exceptions for interst */
+/* Exceptions for interest */
 .form.form--loan {
   grid-template-columns: 2.5fr 1fr 2.5fr;
 }
@@ -292,4 +292,82 @@ h2 {
 
 .timer {
   font-weight: 600;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .login {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .login__input,
+  .login__btn {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto repeat(6, auto);
+    gap: 1rem;
+    margin: 2rem auto;
+  }
+
+  .balance,
+  .movements,
+  .summary {
+    margin: 1rem 0;
+  }
+
+  .movements__row {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .movements__type,
+  .movements__date {
+    margin: 0.5rem 0;
+  }
+
+  .summary {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .summary__label,
+  .summary__value {
+    margin: 0.5rem 0;
+  }
+
+  .operation {
+    padding: 2rem;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 0.5rem;
+  }
+
+  .form__label {
+    margin-bottom: 0.5rem;
+  }
+
+  .logout-timer {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
 }
