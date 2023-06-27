@@ -27,7 +27,7 @@ const account1 = {
 
 const account2 = {
   owner: 'Jessica Davis',
-  movements: [5000, 3400, -150, -790, -3210, -1000, 8500],
+  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, 500],
   interestRate: 1.5,
   pin: 2222,
 
@@ -192,9 +192,9 @@ const updateUI = function (acc) {
 let currentAccount;
 
 // fake always logged in for debugging purposes
-currentAccount = account1;
-updateUI(currentAccount);
-containerApp.style.opacity = 100;
+// currentAccount = account1;
+// updateUI(currentAccount);
+// containerApp.style.opacity = 100;
 
 const now = new Date();
 

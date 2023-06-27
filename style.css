@@ -24,6 +24,10 @@ nav {
   padding: 0 2rem;
 }
 
+footer {
+  text-align: center;
+}
+
 .welcome {
   font-size: 1.9rem;
   font-weight: 500;
