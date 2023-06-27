@@ -11,8 +11,8 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
-  color: #444;
-  background-color: #f3f3f3;
+  color: #fffffe;
+  background-color: #0f0e17;
   height: 100vh;
   padding: 2rem;
 }
@@ -22,15 +22,22 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
+  color: #000000;
 }
 
 footer {
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+  color: #fffffe;
+}
+
 .welcome {
   font-size: 1.9rem;
   font-weight: 500;
+  color: #fffffe;
 }
 
 .logo {
@@ -51,17 +58,17 @@ footer {
   border-radius: 10rem;
   margin-right: 1rem;
   color: inherit;
-  border: 1px solid #fff;
+  border: 1px solid #0f0e17;
   transition: all 0.3s;
 }
 
 .login__input:focus {
   outline: none;
-  border: 1px solid #ccc;
+  border: 1px solid#0f0e17;
 }
 
 .login__input::placeholder {
-  color: #bbb;
+  color: #0f0e17;
 }
 
 .login__btn {
@@ -71,14 +78,13 @@ footer {
   color: inherit;
   cursor: pointer;
   transition: all 0.3s;
+  color: #fffffe;
 }
 
 .login__btn:hover,
-.login__btn:focus,
-.btn--sort:hover,
-.btn--sort:focus {
+.login__btn:focus {
   outline: none;
-  color: #777;
+  color: #0f0e17;
 }
 
 /* MAIN */
@@ -91,7 +97,7 @@ footer {
   grid-template-rows: auto repeat(3, 15rem) auto;
   gap: 2rem;
 
-  /* NOTE This creates the fade in/out anumation */
+  /*fade in/out anumation */
   opacity: 0;
   transition: all 1s;
 }
@@ -112,7 +118,7 @@ footer {
 
 .balance__date {
   font-size: 1.4rem;
-  color: #888;
+  color: #a7a9be;
 }
 
 .balance__value {
@@ -123,7 +129,7 @@ footer {
 /* MOVEMENTS */
 .movements {
   grid-row: 2 / span 3;
-  background-color: #fff;
+  background-color: #a7a9be;
   border-radius: 1rem;
   overflow: scroll;
 }
@@ -132,14 +138,14 @@ footer {
   padding: 2.25rem 4rem;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #0f0e17;
 }
 
 .movements__type {
   font-size: 1.1rem;
   text-transform: uppercase;
   font-weight: 500;
-  color: #fff;
+  color: #0f0e17;
   padding: 0.1rem 1rem;
   border-radius: 10rem;
   margin-right: 2rem;
@@ -149,7 +155,7 @@ footer {
   font-size: 1.1rem;
   text-transform: uppercase;
   font-weight: 500;
-  color: #666;
+  color: #0f0e17;
 }
 
 .movements__type--deposit {
@@ -163,6 +169,7 @@ footer {
 .movements__value {
   font-size: 1.7rem;
   margin-left: auto;
+  color: #0f0e17;
 }
 
 /* SUMMARY */
@@ -202,6 +209,7 @@ footer {
   font-size: 1.3rem;
   font-weight: 500;
   cursor: pointer;
+  color: #ffffff;
 }
 
 /* OPERATIONS */
@@ -212,11 +220,11 @@ footer {
 }
 
 .operation--transfer {
-  background-image: linear-gradient(to top left, #ffb003, #ffcb03);
+  background-image: linear-gradient(to top left, #3ac1eb, #038791);
 }
 
 .operation--loan {
-  background-image: linear-gradient(to top left, #39b385, #9be15d);
+  background-image: linear-gradient(to top left, #ecea4d, #a2ad02);
 }
 
 .operation--close {
@@ -301,6 +309,7 @@ h2 {
     align-items: center;
     text-align: center;
   }
+
   .welcome {
     padding-top: 25rem;
   }
@@ -315,5 +324,50 @@ h2 {
   .login__btn {
     width: 100%;
     margin: 0.5rem 0;
+  }
+
+  .app {
+    grid-template-columns: 100%; /* Set grid columns to a single column */
+    grid-template-rows: auto; /* Adjust grid rows */
+    margin: auto; /* Adjust margin */
+    max-width: 95%; /* Remove maximum width */
+  }
+
+  .balance {
+    grid-column: auto; /* Remove the grid-column property */
+    /* Remove the grid-row property */
+    margin-bottom: 1rem;
+    text-align: center; /* Center align the balance text */
+  }
+
+  .balance__value {
+    margin: 0; /* Remove margin */
+    font-size: 3.5rem; /* Adjust font size */
+    flex-wrap: wrap;
+  }
+
+  .movements {
+    grid-column: auto; /* Remove the grid-column property */
+    grid-row: auto; /* Remove the grid-row property */
+    overflow: auto; /* Adjust the overflow property */
+    margin-bottom: 2rem; /* Add margin-bottom to create space between movements and operations */
+  }
+
+  .operation {
+    margin-bottom: 2rem; /* Add margin-bottom to create space between movements and operations */
+  }
+
+  .logout-timer {
+    text-align: center; /* Center align the logout timer */
+    margin-top: 2rem; /* Add margin-top to create space between operations and logout timer */
+  }
+
+  html,
+  body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+
+  .summary {
+    margin-top: 2rem; /* Add margin-top to create space between movements and summary */
   }
 }

@@ -61,7 +61,7 @@ After cloning this repo you should be able to change your details as needed.
 - [x] Implement today's date when the user logs in
 - [x] Fix request loan section
 - [x] Fix close account section
-- [ ] Fix media queries
+- [x] Fix media queries
 - [ ] Add sound effect when user successfully logs in
 - [ ] Add sound effect when user requests a loan
 - [ ] Add sound effect when user transfers money to a different account
