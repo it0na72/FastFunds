@@ -54,8 +54,8 @@ After cloning this repo you should be able to change your details as needed.
 
 ## Roadmap
 
-- [ ] Change colour pallet
-- [ ] Add night mode
+- [x] Change colour pallet
+- [x] Add night mode
 - [ ] Make a separate website explaining how the bank app works
 - [x] Implement 2 min logout timer
 - [x] Implement today's date when the user logs in

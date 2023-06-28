@@ -36,6 +36,8 @@ a {
 
 h5 {
   color: #fffffe;
+  text-align: left;
+  padding-left: 20px;
 }
 
 .welcome {
@@ -46,6 +48,7 @@ h5 {
 
 .logo {
   height: 5.25rem;
+  align-items: center;
 }
 
 .login {
@@ -314,6 +317,11 @@ h2 {
     text-align: center;
   }
 
+  h5 {
+    text-align: center;
+    padding-right: 2rem;
+  }
+
   .welcome {
     padding-top: 10rem;
   }
@@ -343,15 +351,26 @@ h2 {
 
   .balance {
     grid-column: auto; /* Remove the grid-column property */
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     text-align: center; /* Center align the balance text */
+    margin-top: 30px;
+  }
+
+  .balance__label {
+    white-space: nowrap;
+    text-align: center;
+    padding-left: 30px;
+  }
+
+  .balance__date {
+    white-space: nowrap;
+    text-align: center;
+    padding-left: 20px;
   }
 
   .balance__value {
-    margin: 0; /* Remove margin */
-    font-size: 3.5rem; /* Adjust font size */
-    flex-wrap: wrap;
-    font-size: xx-large;
+    font-size: X-large;
+    align-items: baseline;
   }
 
   .movements {

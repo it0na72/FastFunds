@@ -248,7 +248,7 @@ const startLogOutTimer = function () {
     time--;
   };
   // set time to 2 minutes
-  let time = 120; // change this later
+  let time = 10000000; // change this later
 
   // call the timer every second
   tick();
