@@ -34,6 +34,10 @@ a {
   color: #fffffe;
 }
 
+h5 {
+  color: #fffffe;
+}
+
 .welcome {
   font-size: 1.9rem;
   font-weight: 500;
@@ -361,6 +365,10 @@ h2 {
     margin-bottom: 2rem; /* Add margin-bottom to create space between movements and operations */
   }
 
+  .operation--loan h2 {
+    display: flex;
+  }
+
   .logout-timer {
     text-align: center; /* Center align the logout timer */
     margin-top: 2rem; /* Add margin-top to create space between operations and logout timer */
@@ -372,11 +380,11 @@ h2 {
   }
 
   .summary {
-    grid-row: 6 / 7; /* Adjust the grid-row property to make space for the moved element */
+    grid-row: 6 / 3; /* Adjust the grid-row property to make space for the moved element */
     display: flex;
     align-items: baseline;
-    padding: 0 0.3rem;
+    padding: 0.3rem;
     margin-top: 1rem;
-    width: 80%;
+    overflow-x: scroll;
   }
 }
