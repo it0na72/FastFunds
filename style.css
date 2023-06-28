@@ -353,24 +353,23 @@ h2 {
     grid-column: auto; /* Remove the grid-column property */
     /* margin-bottom: 1rem; */
     text-align: center; /* Center align the balance text */
-    margin-top: 30px;
+    margin-top: 40px;
+    flex-direction: column;
+    align-items: center;
   }
 
   .balance__label {
     white-space: nowrap;
     text-align: center;
-    padding-left: 30px;
   }
 
   .balance__date {
     white-space: nowrap;
     text-align: center;
-    padding-left: 20px;
   }
 
   .balance__value {
-    font-size: X-large;
-    align-items: baseline;
+    font-size: xx-large;
   }
 
   .movements {
@@ -381,7 +380,7 @@ h2 {
   }
 
   .operation {
-    margin-bottom: 2rem; /* Add margin-bottom to create space between movements and operations */
+    margin-bottom: 1rem; /* Add margin-bottom to create space between movements and operations */
   }
 
   .operation--loan h2 {
