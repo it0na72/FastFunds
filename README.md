@@ -37,7 +37,20 @@
 
 FastFunds is a cutting-edge banking web application designed to provide users with a lightning-fast and seamless financial experience. With our user-friendly interface and robust features, managing your funds has never been easier. Our platform enables you to effortlessly navigate through various banking operations, including account management, fund transfers, bill payments, and transaction tracking.
 
-DEMO Accounts:
+<b>DEMO Accounts:</b>
+
+```user: AO```
+```password: 1111```
+
+```user: JD```
+```password: 2222```
+
+```user: JJ```
+```password: 3333```
+
+```user: SS```
+```password: 4444```
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
