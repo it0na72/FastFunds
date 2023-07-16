@@ -37,6 +37,9 @@
 
 FastFunds is a cutting-edge banking web application designed to provide users with a lightning-fast and seamless financial experience. With our user-friendly interface and robust features, managing your funds has never been easier. Our platform enables you to effortlessly navigate through various banking operations, including account management, fund transfers, bill payments, and transaction tracking.
 
+DEMO Accounts:
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
@@ -64,6 +67,8 @@ After cloning this repo you should be able to change your details as needed.
 - [x] Fix media queries
 - [x] Implement countdown timer
 - [x] Use internationalization API for dates and numbers
+- [x] Implement login
+- [x] Implement transfer between accounts
 - [ ] Add sound effect when user successfully logs in
 - [ ] Add sound effect when user requests a loan
 - [ ] Add sound effect when user transfers money to a different account
