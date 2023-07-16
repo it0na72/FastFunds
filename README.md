@@ -56,12 +56,14 @@ After cloning this repo you should be able to change your details as needed.
 
 - [x] Change colour pallet
 - [x] Add night mode
-- [ ] Make a separate website explaining how the bank app works
+- [x] Make a separate website explaining how the bank app works
 - [x] Implement 2 min logout timer
 - [x] Implement today's date when the user logs in
 - [x] Fix request loan section
 - [x] Fix close account section
 - [x] Fix media queries
+- [x] Implement countdown timer
+- [x] Use internationalization API for dates and numbers
 - [ ] Add sound effect when user successfully logs in
 - [ ] Add sound effect when user requests a loan
 - [ ] Add sound effect when user transfers money to a different account
